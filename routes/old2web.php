@@ -15,9 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//クエリー文字列渡し、Bladeの使い方
+//クエリー文字列渡し
 Route::get('hello', 'HelloController@index');
-Route::post('hello', 'HelloController@post');
 
 //連想配列渡し
 //Route::get('hello/{id?}', 'HelloController@index');

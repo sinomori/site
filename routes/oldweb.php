@@ -15,19 +15,26 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//クエリー文字列渡し、Bladeの使い方
-Route::get('hello', 'HelloController@index');
-Route::post('hello', 'HelloController@post');
-
-//連想配列渡し
-//Route::get('hello/{id?}', 'HelloController@index');
-
-//helloのview呼び出し
-//Route::get('hello', function() {
-//    return view('hello.index');
-//});
-
-/*リクエストとレスポンスの使い方
-Route::get('hello','HelloController@index');
+/*
+URLパラメーターの受け渡し
+Route::get('hello/{msg?}', function ($msg = 'no massage') {
+$html = <<<EOF
+<html>
+<body>
+    {$msg}
+</body>
+</html>
+EOF;
+    return $html;
+});
 */
-
+/*
+コントローラーでルートパラメーターを扱う
+Route::get('hello/{id?}/{pass?}', 'HelloController@index');
+*/
+/*アクションを複数
+Route::get('hello', 'HelloController@index');
+Route::get('hello/other', 'HelloController@other');
+ * 
+ */
+Route::get('hello','HelloController@index');
